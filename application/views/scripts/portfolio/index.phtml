@@ -1,0 +1,39 @@
+<div class="container_12">
+    <div class="grid_12">
+        <h1>PORTFOLIO</h1>
+
+        <p>On this page, you can find a selection from the portfolio of web developement projects of Nevitech. If you have questions, suggestions or if you are interested in our work, then you can always contacts us via the contact page.</p>
+        <br />
+    </div>
+
+    <?php if (count($this->paginator)) : ?>
+        <ul class="clearfix">
+            <?php foreach ($this->paginator as $project) : ?>
+                <li class="grid_3">
+                    <div class="item">
+                        <a href="http://<?php echo $project->link; ?>" target="_blank" title="<?php echo $project->name; ?>">
+                            <img src="<?php echo $this->baseUrl(); ?>/uploads/<?php echo $project->image; ?>" alt="<?php echo $project->name; ?>" height="147" width="200"/>
+                            <span></span>
+                        </a>
+                        <div class="info">
+                            <h2><?php echo $this->escape($project->name); ?></h2>
+                            <p><a href="<?php echo $project->link; ?>" target="_blank"><?php echo $project->link; ?></a></p>
+                        </div>
+
+                        <?php if ($this->isLoggedIn()) : ?>
+                            <a href="/portfolio/delete/id/<?php echo $project->id; ?>/hash/<?php echo md5('Random string' . session_id()); ?>" class="delete">
+                                <img src="<?php echo $this->baseUrl(); ?>/images/portfolio/delete.png" alt="Delete project"  />
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+
+        <?php
+            if ($this->paginator->getTotalItemCount() > $this->paginator->getItemCountPerPage()) {
+                echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml');
+            }
+        ?>
+    <?php endif; ?>
+</div>

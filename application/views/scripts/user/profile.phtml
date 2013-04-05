@@ -1,0 +1,6 @@
+<div class="grid_12">
+    <h1><?php echo ucfirst($this->escape($this->user->firstname)) . ' ' . ucfirst($this->escape($this->user->lastName)); ?></h1>
+    <p>@<?php echo $this->escape($this->user->username); ?></p>
+    <p>Member since <?php echo $this->user->created; ?></p>
+    <img src="<?php echo $this->baseUrl(); ?>/uploads/users/<?php echo $this->user->image; ?>" />
+</div>

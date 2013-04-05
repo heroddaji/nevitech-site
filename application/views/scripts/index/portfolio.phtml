@@ -1,0 +1,20 @@
+<section class="section gray" id="projects" data-create="portfolio" data-list=".projects-list">
+    <div class="container_12">
+        <nav class="projects-navigation grid_12">
+            <li><a class="active" data-category="" href="#">All</a></li>
+            <li><a data-category="demo" href="#">Demo</a></li>
+            <li><a data-category="client" href="#">Customers</a></li>
+        </nav>
+
+        <ul class="projects-list">
+            <?php foreach ($this->projects as $project) : ?>
+                <li class="grid_3">
+                    <a href="http://<?php echo $project->link; ?>" target="_blank" title="<?php echo $project->name; ?>">
+                        <img class="lazy" src="/images/grey.gif" data-original="/uploads/<?php echo $project->image; ?>" alt="<?php echo $project->name; ?>" height="147" width="200"/>
+                        <div><span><?php echo $project->name; ?></span></div>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,1 @@
+Javascript files are minified. Use http://www.zbugs.com/ to minify javascript.
